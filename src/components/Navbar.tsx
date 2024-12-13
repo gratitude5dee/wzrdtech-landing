@@ -97,18 +97,21 @@ const Navbar = () => {
         className={`fixed bottom-4 right-4 z-50 transition-all duration-300 ease-in-out
           ${showMenu ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}
           backdrop-blur-md bg-gradient-to-br from-[#1A1F2C80] via-[#221F2680] to-[#22222280]
-          border border-[#9b87f520] rounded-lg shadow-lg
+          border border-[#9b87f520] rounded-lg shadow-lg p-4
           before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] 
-          before:bg-repeat before:opacity-20 before:mix-blend-overlay before:pointer-events-none`}
+          before:bg-repeat before:opacity-20 before:mix-blend-overlay before:pointer-events-none
+          after:absolute after:inset-0 after:rounded-lg after:bg-gradient-to-br after:from-[#9b87f510] after:to-transparent after:opacity-50`}
       >
-        <div className="relative p-4 space-y-2">
+        <div className="relative space-y-2">
           {navItems.map((item) => (
             <a
               key={item.name}
               href={item.href}
               className="block px-4 py-2 text-sm text-white/90 hover:text-white
                 hover:bg-white/10 rounded transition-colors
-                border border-transparent hover:border-[#9b87f520]"
+                border border-transparent hover:border-[#9b87f520]
+                backdrop-blur-sm hover:backdrop-blur-md
+                hover:shadow-[0_0_15px_rgba(155,135,245,0.1)]"
             >
               {item.name}
             </a>
