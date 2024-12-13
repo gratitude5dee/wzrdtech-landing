@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import TimelineItem from "./TimelineItem";
+import TimelineCurve from "./TimelineCurve";
 
 const Timeline = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -75,7 +77,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="timeline">
+    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32 mb-32" id="timeline">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="text-gradient">Roadmap</span>
@@ -84,54 +86,21 @@ const Timeline = () => {
         <div className="relative" ref={timelineRef}>
           {/* Curved Lines */}
           {milestones.map((_, index) => (
-            <div 
-              key={`curve-${index}`} 
-              className="absolute left-4 md:left-1/2" 
-              style={{
-                top: `${(index * 24)}rem`,
-                height: '24rem'
-              }}
-            >
-              <svg 
-                className="h-full w-40 -ml-20" 
-                viewBox="0 0 100 100" 
-                preserveAspectRatio="none"
-              >
-                <path
-                  d={index % 2 === 0 
-                    ? "M50,0 Q60,50 50,100" 
-                    : "M50,0 Q40,50 50,100"
-                  }
-                  className="stroke-red-500/20"
-                  fill="none"
-                  strokeWidth="2"
-                />
-              </svg>
-            </div>
+            <TimelineCurve 
+              key={`curve-${index}`}
+              index={index}
+              top={index * 24}
+            />
           ))}
 
           {/* Timeline Items */}
           <div className="space-y-24">
             {milestones.map((milestone, index) => (
-              <div 
-                key={index} 
-                className={`timeline-item relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 opacity-0 transition-all duration-1000`}
-              >
-                {/* Glowing Checkpoint */}
-                <div className="absolute left-4 md:left-1/2 w-6 h-6 -ml-3 rounded-full bg-red-500 
-                  shadow-[0_0_20px_rgba(239,68,68,0.5)] animate-glow z-10 
-                  before:absolute before:inset-0 before:rounded-full before:bg-red-500 
-                  before:animate-ping before:opacity-75"
-                />
-                
-                {/* Content */}
-                <div className={`md:text-right ${index % 2 === 0 ? 'md:pr-16' : 'md:order-2 md:pl-16'}`}>
-                  <h3 className="text-2xl font-bold text-red-500 mb-2">{milestone.date}</h3>
-                  <h4 className="text-xl font-bold text-white mb-2">{milestone.title}</h4>
-                  <p className="text-gray-400">{milestone.description}</p>
-                </div>
-                <div className={index % 2 === 0 ? 'md:pl-16' : 'md:order-1 md:pr-16'} />
-              </div>
+              <TimelineItem 
+                key={index}
+                {...milestone}
+                index={index}
+              />
             ))}
           </div>
         </div>
