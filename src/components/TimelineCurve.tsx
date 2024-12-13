@@ -4,12 +4,15 @@ interface TimelineCurveProps {
 }
 
 const TimelineCurve = ({ index, top }: TimelineCurveProps) => {
+  // Don't render anything for the last curve
+  if (index === 7) return null;
+
   return (
     <div 
       className="absolute left-4 md:left-1/2" 
       style={{
         top: `${top}rem`,
-        height: index === 7 ? '0' : '24rem' // Remove height for last curve completely
+        height: '24rem'
       }}
     >
       <svg 
