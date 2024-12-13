@@ -38,3 +38,17 @@
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-jatt-gold via-jatt-neon-purple to-jatt-gold;
 }
+
+.stroke-gradient {
+  @apply stroke-purple-500;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.path-curve-right, .path-curve-left {
+  transition: stroke-dashoffset 2s ease-out;
+}
+
+.animate-draw {
+  stroke-dashoffset: 0 !important;
+}

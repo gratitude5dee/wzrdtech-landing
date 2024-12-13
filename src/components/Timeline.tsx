@@ -11,21 +11,21 @@ const Timeline = () => {
             entry.target.classList.add('animate-fade-in', 'opacity-100');
             entry.target.classList.remove('opacity-0');
             
-            // Add active state to timeline point
+            // Add active state and glow to timeline point
             const point = entry.target.querySelector('.timeline-point');
-            point?.classList.add('scale-125', 'bg-red-400');
+            point?.classList.add('scale-125', 'animate-glow');
             
-            // Animate the line connecting to the next point
-            const line = entry.target.querySelector('.timeline-line');
-            line?.classList.add('scale-x-100');
+            // Animate the curved line
+            const line = entry.target.querySelector('.timeline-curve');
+            line?.classList.add('animate-draw');
           } else {
             // Remove active state when out of view
             const point = entry.target.querySelector('.timeline-point');
-            point?.classList.remove('scale-125', 'bg-red-400');
+            point?.classList.remove('scale-125', 'animate-glow');
             
             // Reset line animation
-            const line = entry.target.querySelector('.timeline-line');
-            line?.classList.remove('scale-x-100');
+            const line = entry.target.querySelector('.timeline-curve');
+            line?.classList.remove('animate-draw');
           }
         });
       },
@@ -78,40 +78,66 @@ const Timeline = () => {
         </h2>
 
         <div className="relative" ref={timelineRef}>
-          {/* Central Line */}
-          <div className="absolute left-4 md:left-1/2 h-full w-px bg-red-500/20 transform -translate-x-1/2" />
-
           {/* Timeline Items */}
-          <div className="space-y-24">
+          <div className="space-y-32">
             {milestones.map((milestone, index) => (
               <div 
                 key={index} 
                 className={`timeline-item relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 opacity-0 transition-all duration-1000`}
               >
-                {/* Timeline Point */}
-                <div className="timeline-point absolute left-4 md:left-1/2 w-4 h-4 -ml-2 rounded-full bg-red-500 
-                  transition-all duration-500 transform -translate-x-1/2 z-10"
+                {/* Timeline Point with Glow */}
+                <div 
+                  className={`timeline-point absolute ${
+                    index % 2 === 0 ? 'md:left-[25%]' : 'md:left-[75%]'
+                  } w-6 h-6 -ml-3 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500
+                  shadow-[0_0_30px_rgba(236,72,153,0.7)] transition-all duration-500 z-20`}
                 />
                 
-                {/* Timeline Line - Animated connection to next point */}
+                {/* Curved Connection Line */}
                 {index < milestones.length - 1 && (
-                  <div className="timeline-line absolute left-4 md:left-1/2 w-px h-24 bg-red-500 
-                    transform -translate-x-1/2 origin-top scale-x-0 transition-transform duration-1000"
-                    style={{ top: '2rem' }}
-                  />
+                  <div className="timeline-curve absolute w-full h-32 overflow-visible z-10"
+                       style={{ top: '2rem' }}>
+                    <svg className="w-full h-full" preserveAspectRatio="none">
+                      <path
+                        className={`stroke-[3] stroke-gradient fill-none ${
+                          index % 2 === 0 
+                            ? 'path-curve-right' 
+                            : 'path-curve-left'
+                        }`}
+                        d={index % 2 === 0 
+                          ? `M ${window.innerWidth * 0.25} 0 C ${window.innerWidth * 0.4} 50, ${window.innerWidth * 0.6} 50, ${window.innerWidth * 0.75} 100`
+                          : `M ${window.innerWidth * 0.75} 0 C ${window.innerWidth * 0.6} 50, ${window.innerWidth * 0.4} 50, ${window.innerWidth * 0.25} 100`
+                        }
+                        style={{
+                          stroke: 'url(#gradient)',
+                          strokeDasharray: '1000',
+                          strokeDashoffset: '1000'
+                        }}
+                      />
+                      <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" style={{ stopColor: '#8B5CF6' }} />
+                          <stop offset="50%" style={{ stopColor: '#D946EF' }} />
+                          <stop offset="100%" style={{ stopColor: '#F97316' }} />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
                 )}
                 
                 {/* Content */}
                 <div className={`${
                   index % 2 === 0 
-                    ? 'md:text-right md:pr-16' 
-                    : 'md:order-2 md:pl-16'
+                    ? 'md:text-right md:pr-16 md:col-start-1' 
+                    : 'md:text-left md:pl-16 md:col-start-2'
                 }`}>
-                  <h3 className="text-2xl font-bold text-red-500 mb-2">{milestone.date}</h3>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
+                    {milestone.date}
+                  </h3>
                   <h4 className="text-xl font-bold text-white mb-2">{milestone.title}</h4>
                   <p className="text-gray-400">{milestone.description}</p>
                 </div>
-                <div className={index % 2 === 0 ? 'md:pl-16' : 'md:order-1 md:pr-16'} />
+                <div className={index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'} />
               </div>
             ))}
           </div>
