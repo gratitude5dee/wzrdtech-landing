@@ -1,3 +1,5 @@
+import { Twitter, Telegram, Discord, Menu } from "lucide-react";
+
 const Footer = () => {
   return (
     <footer className="relative py-16 overflow-hidden">
@@ -23,9 +25,12 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Footer Menu */}
           <div className="backdrop-blur-sm">
-            <h3 className="text-white font-bold mb-6 text-xl">Quick Links</h3>
+            <div className="flex items-center gap-2 mb-6">
+              <Menu className="w-5 h-5 text-jatt-gold" />
+              <h3 className="text-white font-bold text-xl">Footer Menu</h3>
+            </div>
             <ul className="space-y-3">
               <li>
                 <a 
@@ -63,7 +68,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Connect Section with Icons */}
           <div className="backdrop-blur-sm">
             <h3 className="text-white font-bold mb-6 text-xl">Connect</h3>
             <ul className="space-y-3">
@@ -72,8 +77,8 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-neon-blue transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <span className="w-1.5 h-1.5 bg-jatt-neon-blue rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Twitter
+                  <Twitter className="w-5 h-5" />
+                  <span>Twitter</span>
                 </a>
               </li>
               <li>
@@ -81,8 +86,8 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-neon-purple transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <span className="w-1.5 h-1.5 bg-jatt-neon-purple rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Telegram
+                  <Telegram className="w-5 h-5" />
+                  <span>Telegram</span>
                 </a>
               </li>
               <li>
@@ -90,8 +95,8 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-neon-green transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <span className="w-1.5 h-1.5 bg-jatt-neon-green rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Discord
+                  <Discord className="w-5 h-5" />
+                  <span>Discord</span>
                 </a>
               </li>
               <li>
@@ -99,8 +104,19 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-gold transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <span className="w-1.5 h-1.5 bg-jatt-gold rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  Medium
+                  <svg 
+                    viewBox="0 0 24 24" 
+                    className="w-5 h-5"
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                  </svg>
+                  <span>Medium</span>
                 </a>
               </li>
             </ul>
