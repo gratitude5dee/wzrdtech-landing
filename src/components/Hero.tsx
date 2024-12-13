@@ -45,13 +45,13 @@ const Hero = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-green to-transparent animate-glow delay-200" />
       </div>
 
-      {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
+      {/* Main content - moved below Spline with higher z-index */}
+      <div className="relative z-20 flex flex-col items-center justify-center min-h-screen px-4 text-center mt-[50vh]">
         <div 
           ref={coinRef}
-          className="w-32 h-32 md:w-48 md:h-48 bg-jatt-gold rounded-full mb-12 animate-rotate-slow shadow-lg shadow-jatt-gold/20"
+          className="w-32 h-32 md:w-48 md:h-48 bg-red-500 rounded-full mb-12 animate-rotate-slow shadow-lg shadow-yellow-500/50 ring-2 ring-yellow-400/50"
         >
-          <div className="w-full h-full flex items-center justify-center text-jatt-dark text-4xl md:text-6xl font-bold">
+          <div className="w-full h-full flex items-center justify-center text-white text-4xl md:text-6xl font-bold">
             $
           </div>
         </div>
@@ -59,7 +59,7 @@ const Hero = () => {
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
           One this Earth,
         </h1>
-        <h2 className="text-5xl md:text-7xl font-bold text-jatt-gold mb-8">
+        <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
           we all one $JATT
         </h2>
         <p className="text-gray-400 max-w-2xl mb-12">
@@ -70,13 +70,13 @@ const Hero = () => {
         <div className="flex gap-4">
           <a
             href="#stake"
-            className="px-8 py-3 bg-jatt-gold text-jatt-dark font-bold rounded-full hover:bg-jatt-gold/90 transition-colors"
+            className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-yellow-500/50"
           >
             Buy $JATT
           </a>
           <a
             href="#roadmap"
-            className="px-8 py-3 border-2 border-jatt-gold text-jatt-gold font-bold rounded-full hover:bg-jatt-gold/10 transition-colors"
+            className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-yellow-500/50"
           >
             Learn More
           </a>
