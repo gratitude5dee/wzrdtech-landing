@@ -57,7 +57,7 @@ const Timeline = () => {
         </h2>
 
         <div className="relative">
-          {/* SVG Path for the curved zig-zag */}
+          {/* SVG Path for the timeline line */}
           <svg
             className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full"
             style={{ maxWidth: "4px" }}
@@ -65,7 +65,7 @@ const Timeline = () => {
             <path
               ref={pathRef}
               className="path-curve-right stroke-gradient"
-              d="M2 0 C2 100, 100 150, 2 200 C2 300, 100 350, 2 400 C2 500, 100 550, 2 600 C2 700, 100 750, 2 800"
+              d="M2 0 L2 800"
               fill="none"
               strokeWidth="4"
               strokeDasharray="1000"
