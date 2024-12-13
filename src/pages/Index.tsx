@@ -31,12 +31,11 @@ const Index = () => {
       </div>
 
       {/* Timeline Section with top gradient */}
-      <div className="relative mb-0">
+      <div className="relative">
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-jatt-darker to-transparent" />
         <Timeline />
+        <Footer />
       </div>
-
-      <Footer />
     </div>
   );
 };
