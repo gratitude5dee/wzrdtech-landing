@@ -1,6 +1,6 @@
 const Features = () => {
   return (
-    <section className="min-h-screen bg-jatt-darker px-4 py-20" id="features">
+    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="features">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="text-gradient">Features</span>

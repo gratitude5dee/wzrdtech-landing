@@ -1,6 +1,6 @@
 const Sponsors = () => {
   return (
-    <section className="bg-jatt-darker px-4 py-20" id="sponsors">
+    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="sponsors">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="text-gradient">Partners</span>
