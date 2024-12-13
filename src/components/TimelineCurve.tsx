@@ -27,7 +27,7 @@ const TimelineCurve = ({ index, top }: TimelineCurveProps) => {
           }
           className="stroke-red-500/20"
           fill="none"
-          strokeWidth="2"
+          strokeWidth="1"
         />
       </svg>
     </div>
