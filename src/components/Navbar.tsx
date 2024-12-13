@@ -40,7 +40,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Enhanced floating glassmorphism menu with curved bezels */}
       <div 
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out
           ${showMenu ? 'bottom-0 opacity-100 scale-100' : '-bottom-20 opacity-0 scale-95 pointer-events-none'}
@@ -53,16 +52,14 @@ const Navbar = () => {
           hover:bg-gradient-to-br hover:from-[#1A1F2C99] hover:via-[#221F2699] hover:to-[#22222299]`}
       >
         <div className="relative flex items-center justify-between w-full">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <img 
               src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
               alt="$JATT Logo"
-              className="h-8 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]" // Increased size from h-8 to h-16
             />
           </div>
 
-          {/* Navigation Items */}
           <div className="flex items-center justify-center gap-6 flex-grow">
             {navItems.map((item) => (
               <a
@@ -105,7 +102,7 @@ const Navbar = () => {
             <img 
               src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
               alt="$JATT Logo"
-              className="h-12 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]" // Increased size from h-12 to h-24
             />
             {navItems.map((item) => (
               <a
