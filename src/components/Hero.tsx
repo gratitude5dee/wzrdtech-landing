@@ -48,10 +48,11 @@ const Hero = () => {
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center">
+          {/* Increased size from w-48 to w-64 */}
           <img 
             src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
             alt="$JATT Logo"
-            className="w-48 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(255,68,68,0.6)] animate-pulse"
+            className="w-64 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(255,68,68,0.6)] animate-pulse"
           />
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
