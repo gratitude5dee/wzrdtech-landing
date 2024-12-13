@@ -1,4 +1,4 @@
-import { Twitter, Telegram, Discord, Menu } from "lucide-react";
+import { Twitter, MessageCircle, MessagesSquare, Menu } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -86,7 +86,7 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-neon-purple transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <Telegram className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5" />
                   <span>Telegram</span>
                 </a>
               </li>
@@ -95,7 +95,7 @@ const Footer = () => {
                   href="#" 
                   className="text-gray-300 hover:text-jatt-neon-green transition-colors duration-300 flex items-center gap-2 group"
                 >
-                  <Discord className="w-5 h-5" />
+                  <MessagesSquare className="w-5 h-5" />
                   <span>Discord</span>
                 </a>
               </li>
