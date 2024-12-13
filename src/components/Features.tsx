@@ -6,7 +6,7 @@ const Features = () => {
           <span className="text-gradient">Features</span>
         </h2>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <h3 className="text-3xl font-bold text-white">
               play around based on your needs
@@ -31,6 +31,36 @@ const Features = () => {
                 <pre>// $JATT implementation example
 {`const jatt = new JATT({
   address: "0x9c143..."`}</pre>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <h3 className="text-3xl font-bold text-white">
+              community driven
+            </h3>
+            <p className="text-gray-400">
+              join our growing community of creators and developers building the future of content monetization
+            </p>
+            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-purple-500/20">
+              <div className="grid grid-cols-3 gap-4">
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="aspect-square rounded-lg bg-black/50 animate-pulse" />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <h3 className="text-3xl font-bold text-white">
+              AI powered
+            </h3>
+            <p className="text-gray-400">
+              leverage cutting-edge AI technology to enhance your content creation and development workflow
+            </p>
+            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-blue-500/20">
+              <div className="h-32 rounded-lg bg-black/50 animate-pulse flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-blue-500/20 animate-ping" />
               </div>
             </div>
           </div>

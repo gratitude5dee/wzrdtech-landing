@@ -1,143 +1,105 @@
 import { useEffect, useRef } from "react";
 
 const Timeline = () => {
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const pathRef = useRef<SVGPathElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fade-in', 'opacity-100');
-            entry.target.classList.remove('opacity-0');
-            
-            // Add active state and glow to timeline point
-            const point = entry.target.querySelector('.timeline-point');
-            point?.classList.add('scale-125', 'animate-glow');
-            
-            // Animate the curved line
-            const line = entry.target.querySelector('.timeline-curve');
-            line?.classList.add('animate-draw');
-          } else {
-            // Remove active state when out of view
-            const point = entry.target.querySelector('.timeline-point');
-            point?.classList.remove('scale-125', 'animate-glow');
-            
-            // Reset line animation
-            const line = entry.target.querySelector('.timeline-curve');
-            line?.classList.remove('animate-draw');
+            entry.target.classList.add("animate-draw");
           }
         });
       },
-      {
-        threshold: 0.5,
-        rootMargin: "-100px"
-      }
+      { threshold: 0.1 }
     );
 
-    const timelineItems = timelineRef.current?.querySelectorAll('.timeline-item');
-    timelineItems?.forEach((item) => {
-      observer.observe(item);
-    });
+    const quarters = document.querySelectorAll(".quarter-point");
+    quarters.forEach((quarter) => observer.observe(quarter));
 
-    return () => {
-      timelineItems?.forEach((item) => {
-        observer.unobserve(item);
-      });
-    };
+    if (pathRef.current) {
+      observer.observe(pathRef.current);
+    }
+
+    return () => observer.disconnect();
   }, []);
 
-  const milestones = [
+  const timelineData = [
     {
-      date: "Q1 2024",
+      quarter: "Q1 2024",
       title: "Launch Phase",
-      description: "Initial token launch and community building"
+      description: "Initial token launch and community building",
     },
     {
-      date: "Q2 2024",
-      title: "Development",
-      description: "Platform development and partnership announcements"
+      quarter: "Q2 2024",
+      title: "Platform Development",
+      description: "Beta release of core features and tools",
     },
     {
-      date: "Q3 2024",
-      title: "Integration",
-      description: "Major exchange listings and tool integrations"
+      quarter: "Q3 2024",
+      title: "Ecosystem Growth",
+      description: "Partnership expansion and feature enhancement",
     },
     {
-      date: "Q4 2024",
-      title: "Expansion",
-      description: "Global expansion and new feature releases"
-    }
+      quarter: "Q4 2024",
+      title: "Global Adoption",
+      description: "Worldwide platform deployment and scaling",
+    },
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="timeline">
-      <div className="container mx-auto">
+    <section className="relative py-32 overflow-hidden" id="timeline">
+      <div className="container mx-auto px-4" ref={containerRef}>
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="text-gradient">Roadmap</span>
         </h2>
 
-        <div className="relative" ref={timelineRef}>
-          {/* Timeline Items */}
-          <div className="space-y-32">
-            {milestones.map((milestone, index) => (
-              <div 
-                key={index} 
-                className={`timeline-item relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 opacity-0 transition-all duration-1000`}
+        <div className="relative">
+          {/* SVG Path for the curved zig-zag */}
+          <svg
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full"
+            style={{ maxWidth: "4px" }}
+          >
+            <path
+              ref={pathRef}
+              className="path-curve-right stroke-gradient"
+              d="M2 0 C2 100, 100 150, 2 200 C2 300, 100 350, 2 400 C2 500, 100 550, 2 600 C2 700, 100 750, 2 800"
+              fill="none"
+              strokeWidth="4"
+              strokeDasharray="1000"
+              strokeDashoffset="1000"
+            />
+          </svg>
+
+          <div className="relative z-10">
+            {timelineData.map((item, index) => (
+              <div
+                key={item.quarter}
+                className={`quarter-point flex items-center gap-8 mb-32 ${
+                  index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                }`}
               >
-                {/* Timeline Point with Glow */}
-                <div 
-                  className={`timeline-point absolute ${
-                    index % 2 === 0 ? 'md:left-[25%]' : 'md:left-[75%]'
-                  } w-6 h-6 -ml-3 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500
-                  shadow-[0_0_30px_rgba(236,72,153,0.7)] transition-all duration-500 z-20`}
-                />
-                
-                {/* Curved Connection Line */}
-                {index < milestones.length - 1 && (
-                  <div className="timeline-curve absolute w-full h-32 overflow-visible z-10"
-                       style={{ top: '2rem' }}>
-                    <svg className="w-full h-full" preserveAspectRatio="none">
-                      <path
-                        className={`stroke-[3] stroke-gradient fill-none ${
-                          index % 2 === 0 
-                            ? 'path-curve-right' 
-                            : 'path-curve-left'
-                        }`}
-                        d={index % 2 === 0 
-                          ? `M ${window.innerWidth * 0.25} 0 C ${window.innerWidth * 0.4} 50, ${window.innerWidth * 0.6} 50, ${window.innerWidth * 0.75} 100`
-                          : `M ${window.innerWidth * 0.75} 0 C ${window.innerWidth * 0.6} 50, ${window.innerWidth * 0.4} 50, ${window.innerWidth * 0.25} 100`
-                        }
-                        style={{
-                          stroke: 'url(#gradient)',
-                          strokeDasharray: '1000',
-                          strokeDashoffset: '1000'
-                        }}
-                      />
-                      <defs>
-                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" style={{ stopColor: '#8B5CF6' }} />
-                          <stop offset="50%" style={{ stopColor: '#D946EF' }} />
-                          <stop offset="100%" style={{ stopColor: '#F97316' }} />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                <div
+                  className={`w-1/2 ${
+                    index % 2 === 0 ? "text-right" : "text-left"
+                  }`}
+                >
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-bold text-jatt-gold">
+                      {item.quarter}
+                    </h3>
+                    <h4 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h4>
+                    <p className="text-gray-400">{item.description}</p>
                   </div>
-                )}
-                
-                {/* Content */}
-                <div className={`${
-                  index % 2 === 0 
-                    ? 'md:text-right md:pr-16 md:col-start-1' 
-                    : 'md:text-left md:pl-16 md:col-start-2'
-                }`}>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
-                    {milestone.date}
-                  </h3>
-                  <h4 className="text-xl font-bold text-white mb-2">{milestone.title}</h4>
-                  <p className="text-gray-400">{milestone.description}</p>
                 </div>
-                <div className={index % 2 === 0 ? 'md:col-start-2' : 'md:col-start-1'} />
+                <div className="relative">
+                  <div className="w-8 h-8 rounded-full bg-jatt-gold animate-glow" />
+                </div>
+                <div className="w-1/2" />
               </div>
             ))}
           </div>
