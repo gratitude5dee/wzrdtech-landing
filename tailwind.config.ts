@@ -89,13 +89,18 @@ export default {
         "draw": {
           "0%": { strokeDashoffset: "1000" },
           "100%": { strokeDashoffset: "0" }
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" }
         }
       },
       animation: {
         "float": "float 6s ease-in-out infinite",
         "rotate-slow": "rotate-slow 20s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
-        "draw": "draw 2s ease-out forwards"
+        "draw": "draw 2s ease-out forwards",
+        "spin-slow": "spin-slow 4s linear infinite"
       },
     },
   },
