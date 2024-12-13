@@ -21,8 +21,45 @@ const Hero = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
+  const handleStakeClick = () => {
+    window.open('https://www.pump.fun', '_blank');
+  };
+
+  const scrollToHome = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToRoadmap = () => {
+    const element = document.getElementById('roadmap');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-jatt-dark overflow-hidden" id="home">
+      {/* Navigation Overlay */}
+      <div className="absolute top-0 left-0 right-0 z-10 flex justify-center gap-8 pt-4">
+        <button 
+          onClick={scrollToHome}
+          className="px-8 py-2 text-transparent hover:text-white/50 transition-colors"
+        >
+          Home
+        </button>
+        <button 
+          onClick={scrollToRoadmap}
+          className="px-8 py-2 text-transparent hover:text-white/50 transition-colors"
+        >
+          Roadmap
+        </button>
+        <button 
+          onClick={handleStakeClick}
+          className="px-8 py-2 text-transparent hover:text-white/50 transition-colors"
+        >
+          Stake $JATT
+        </button>
+      </div>
+
       {/* Spline 3D Scene */}
       <div className="h-screen">
         <Spline
@@ -48,7 +85,6 @@ const Hero = () => {
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center">
-          {/* Increased size from w-48 to w-64 */}
           <img 
             src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
             alt="$JATT Logo"
