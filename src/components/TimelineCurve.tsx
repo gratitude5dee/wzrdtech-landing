@@ -9,7 +9,7 @@ const TimelineCurve = ({ index, top }: TimelineCurveProps) => {
       className="absolute left-4 md:left-1/2" 
       style={{
         top: `${top}rem`,
-        height: '24rem'
+        height: index === 7 ? '12rem' : '24rem' // Adjust height for last curve
       }}
     >
       <svg 
