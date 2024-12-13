@@ -51,6 +51,26 @@ const Timeline = () => {
       date: "Q4 2024",
       title: "Expansion",
       description: "Global expansion and new feature releases"
+    },
+    {
+      date: "Q1 2025",
+      title: "Innovation",
+      description: "Advanced features and technological breakthroughs"
+    },
+    {
+      date: "Q2 2025",
+      title: "Ecosystem Growth",
+      description: "Expanding ecosystem and partnerships network"
+    },
+    {
+      date: "Q3 2025",
+      title: "Global Adoption",
+      description: "Worldwide adoption and market penetration"
+    },
+    {
+      date: "Q4 2025",
+      title: "Future Vision",
+      description: "Next generation developments and roadmap expansion"
     }
   ];
 
