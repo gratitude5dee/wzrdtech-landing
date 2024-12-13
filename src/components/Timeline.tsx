@@ -10,12 +10,28 @@ const Timeline = () => {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fade-in', 'opacity-100');
             entry.target.classList.remove('opacity-0');
+            
+            // Add active state to timeline point
+            const point = entry.target.querySelector('.timeline-point');
+            point?.classList.add('scale-125', 'bg-red-400');
+            
+            // Animate the line connecting to the next point
+            const line = entry.target.querySelector('.timeline-line');
+            line?.classList.add('scale-x-100');
+          } else {
+            // Remove active state when out of view
+            const point = entry.target.querySelector('.timeline-point');
+            point?.classList.remove('scale-125', 'bg-red-400');
+            
+            // Reset line animation
+            const line = entry.target.querySelector('.timeline-line');
+            line?.classList.remove('scale-x-100');
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px"
+        threshold: 0.5,
+        rootMargin: "-100px"
       }
     );
 
@@ -62,17 +78,8 @@ const Timeline = () => {
         </h2>
 
         <div className="relative" ref={timelineRef}>
-          {/* Curved Line */}
-          <div className="absolute left-4 md:left-1/2 h-full">
-            <svg className="h-full w-40 -ml-20" viewBox="0 0 100 400" preserveAspectRatio="none">
-              <path
-                d="M50,0 Q60,200 50,400"
-                className="stroke-red-500/20"
-                fill="none"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
+          {/* Central Line */}
+          <div className="absolute left-4 md:left-1/2 h-full w-px bg-red-500/20 transform -translate-x-1/2" />
 
           {/* Timeline Items */}
           <div className="space-y-24">
@@ -81,15 +88,25 @@ const Timeline = () => {
                 key={index} 
                 className={`timeline-item relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 opacity-0 transition-all duration-1000`}
               >
-                {/* Glowing Checkpoint */}
-                <div className="absolute left-4 md:left-1/2 w-6 h-6 -ml-3 rounded-full bg-red-500 
-                  shadow-[0_0_20px_rgba(239,68,68,0.5)] animate-glow z-10 
-                  before:absolute before:inset-0 before:rounded-full before:bg-red-500 
-                  before:animate-ping before:opacity-75"
+                {/* Timeline Point */}
+                <div className="timeline-point absolute left-4 md:left-1/2 w-4 h-4 -ml-2 rounded-full bg-red-500 
+                  transition-all duration-500 transform -translate-x-1/2 z-10"
                 />
                 
+                {/* Timeline Line - Animated connection to next point */}
+                {index < milestones.length - 1 && (
+                  <div className="timeline-line absolute left-4 md:left-1/2 w-px h-24 bg-red-500 
+                    transform -translate-x-1/2 origin-top scale-x-0 transition-transform duration-1000"
+                    style={{ top: '2rem' }}
+                  />
+                )}
+                
                 {/* Content */}
-                <div className={`md:text-right ${index % 2 === 0 ? 'md:pr-16' : 'md:order-2 md:pl-16'}`}>
+                <div className={`${
+                  index % 2 === 0 
+                    ? 'md:text-right md:pr-16' 
+                    : 'md:order-2 md:pl-16'
+                }`}>
                   <h3 className="text-2xl font-bold text-red-500 mb-2">{milestone.date}</h3>
                   <h4 className="text-xl font-bold text-white mb-2">{milestone.title}</h4>
                   <p className="text-gray-400">{milestone.description}</p>
