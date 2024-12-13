@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
   const coinRef = useRef<HTMLDivElement>(null);
@@ -22,6 +23,14 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-screen bg-jatt-dark overflow-hidden" id="home">
+      {/* Spline 3D Scene */}
+      <div className="absolute inset-0 z-0">
+        <Spline
+          scene="https://prod.spline.design/SF6vheWfvahzFGmU/scene.splinecode"
+          className="w-full h-full"
+        />
+      </div>
+
       {/* Background meteors */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-red-900/20 rounded-full animate-float delay-100" />
