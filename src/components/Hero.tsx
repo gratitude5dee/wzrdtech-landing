@@ -45,17 +45,14 @@ const Hero = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-green to-transparent animate-glow delay-200" />
       </div>
 
-      {/* Main content - now in its own section below Spline */}
+      {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center">
-          <div 
-            ref={coinRef}
-            className="w-32 h-32 md:w-48 md:h-48 bg-red-500 rounded-full mb-12 animate-rotate-slow shadow-lg shadow-yellow-500/50 ring-2 ring-yellow-400/50"
-          >
-            <div className="w-full h-full flex items-center justify-center text-white text-4xl md:text-6xl font-bold">
-              $
-            </div>
-          </div>
+          <img 
+            src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
+            alt="$JATT Logo"
+            className="w-48 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(255,68,68,0.6)] animate-pulse"
+          />
           
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             One this Earth,
@@ -71,13 +68,13 @@ const Hero = () => {
           <div className="flex gap-4">
             <a
               href="#stake"
-              className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-yellow-500/50"
+              className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
             >
               Buy $JATT
             </a>
             <a
               href="#roadmap"
-              className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-yellow-500/50"
+              className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
             >
               Learn More
             </a>
