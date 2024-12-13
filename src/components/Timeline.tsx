@@ -62,17 +62,33 @@ const Timeline = () => {
         </h2>
 
         <div className="relative" ref={timelineRef}>
-          {/* Curved Line */}
-          <div className="absolute left-4 md:left-1/2 h-full">
-            <svg className="h-full w-40 -ml-20" viewBox="0 0 100 400" preserveAspectRatio="none">
-              <path
-                d="M50,0 Q60,200 50,400"
-                className="stroke-red-500/20"
-                fill="none"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
+          {/* Curved Lines */}
+          {milestones.map((_, index) => (
+            <div 
+              key={`curve-${index}`} 
+              className="absolute left-4 md:left-1/2" 
+              style={{
+                top: `${(index * 24)}rem`,
+                height: '24rem'
+              }}
+            >
+              <svg 
+                className="h-full w-40 -ml-20" 
+                viewBox="0 0 100 100" 
+                preserveAspectRatio="none"
+              >
+                <path
+                  d={index % 2 === 0 
+                    ? "M50,0 Q60,50 50,100" 
+                    : "M50,0 Q40,50 50,100"
+                  }
+                  className="stroke-red-500/20"
+                  fill="none"
+                  strokeWidth="2"
+                />
+              </svg>
+            </div>
+          ))}
 
           {/* Timeline Items */}
           <div className="space-y-24">
