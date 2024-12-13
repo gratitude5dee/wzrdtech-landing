@@ -77,7 +77,7 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32 mb-32" id="timeline">
+    <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="timeline">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="text-gradient">Roadmap</span>
