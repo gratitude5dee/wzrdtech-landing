@@ -88,16 +88,16 @@ const Hero = () => {
 
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
-        <div className="container mx-auto flex flex-col items-center justify-center text-center relative min-h-screen">
+        <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
           {/* Background video */}
-          <div className="absolute inset-0 w-full h-full opacity-50 pointer-events-none">
+          <div className="absolute inset-0 w-full h-full opacity-50 pointer-events-none z-0">
             <video 
               src="/aivid1.mp4"
               autoPlay
               muted
               playsInline
               loop
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
 
