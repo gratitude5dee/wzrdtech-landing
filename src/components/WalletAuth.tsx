@@ -79,7 +79,7 @@ export const WalletAuth = () => {
                 handleWalletConnect(data.walletAddress);
               }
             }}
-            payButtonText="Connect Wallet"
+            text="Connect Wallet"
             className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
           />
         </>
