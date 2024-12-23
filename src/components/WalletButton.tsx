@@ -85,10 +85,6 @@ export const WalletButton = ({ className = "", variant = "default" }: { classNam
               }
             }}
             className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
-            paymentMethod="fiat"
-            showCrossmintPaymentOnly={true}
-            showConnectWallet={true}
-            connectWalletText="Connect Wallet"
           />
         ) : (
           <button

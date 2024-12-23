@@ -27,6 +27,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Roadmap", href: "#roadmap" },
+    { name: "Access WZRD.tech", href: "https://www.wzrdtech.replit.app" },
     { name: "FAQs", href: "#faqs" },
   ];
 
@@ -73,25 +74,6 @@ const Navbar = () => {
                   blur-sm transition-opacity duration-300" />
               </a>
             ))}
-            <a
-              href="https://www.wzrdtech.replit.app"
-              target="_self"
-              className="px-6 py-2 text-sm font-medium text-white/90 hover:text-white
-                hover:bg-white/10 rounded-xl transition-all duration-300
-                border border-transparent hover:border-[#9b87f540]
-                backdrop-blur-sm hover:backdrop-blur-md
-                hover:shadow-[0_0_20px_rgba(255,68,68,0.3)]
-                group relative overflow-hidden
-                hover:scale-105 transform-gpu
-                bg-gradient-to-r from-red-500 to-purple-600"
-            >
-              <span className="relative z-10 tracking-wide whitespace-nowrap">Access WZRD.tech</span>
-              <div className="absolute inset-0 -translate-y-full group-hover:translate-y-0 
-                bg-gradient-to-b from-white/[0.09] to-transparent transition-transform duration-300" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 
-                bg-gradient-to-r from-transparent via-white/[0.05] to-transparent
-                blur-sm transition-opacity duration-300" />
-            </a>
           </div>
 
           <WalletButton variant="navbar" />
@@ -127,14 +109,6 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            <a
-              href="https://www.wzrdtech.replit.app"
-              target="_self"
-              className="text-2xl text-gray-300 hover:text-red-500 transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              Access WZRD.tech
-            </a>
             <div className="mt-8">
               <WalletButton variant="navbar" />
             </div>
