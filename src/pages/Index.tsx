@@ -21,7 +21,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-jatt-darker">
-      {isLoading && <GlassVideo onLoadComplete={handleLoadComplete} />}
+      <GlassVideo onLoadComplete={handleLoadComplete} />
       <div className={`transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <Navbar />
         <Hero />
