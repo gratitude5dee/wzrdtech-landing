@@ -85,10 +85,9 @@ export const WalletAuth = () => {
                 variant: "destructive",
               });
             }}
+            payButtonText="Connect Wallet"
             className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
-          >
-            Connect Wallet
-          </CrossmintPayButton>
+          />
         </>
       ) : (
         <div className="text-center">
