@@ -30,6 +30,85 @@ export type Database = {
         }
         Relationships: []
       }
+      token_operations: {
+        Row: {
+          amount: number | null
+          created_at: string | null
+          id: string
+          operation_type: Database["public"]["Enums"]["operation_type"]
+          profile_id: string | null
+          status: Database["public"]["Enums"]["operation_status"] | null
+          tx_hash: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          amount?: number | null
+          created_at?: string | null
+          id?: string
+          operation_type: Database["public"]["Enums"]["operation_type"]
+          profile_id?: string | null
+          status?: Database["public"]["Enums"]["operation_status"] | null
+          tx_hash?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number | null
+          created_at?: string | null
+          id?: string
+          operation_type?: Database["public"]["Enums"]["operation_type"]
+          profile_id?: string | null
+          status?: Database["public"]["Enums"]["operation_status"] | null
+          tx_hash?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "token_operations_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_wallets: {
+        Row: {
+          created_at: string | null
+          id: string
+          is_crossmint: boolean | null
+          profile_id: string | null
+          updated_at: string | null
+          wallet_address: string
+          wallet_type: Database["public"]["Enums"]["wallet_type"]
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          is_crossmint?: boolean | null
+          profile_id?: string | null
+          updated_at?: string | null
+          wallet_address: string
+          wallet_type: Database["public"]["Enums"]["wallet_type"]
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          is_crossmint?: boolean | null
+          profile_id?: string | null
+          updated_at?: string | null
+          wallet_address?: string
+          wallet_type?: Database["public"]["Enums"]["wallet_type"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_wallets_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -38,7 +117,9 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      operation_status: "PENDING" | "COMPLETED" | "FAILED"
+      operation_type: "TRANSFER" | "STAKE" | "UNSTAKE"
+      wallet_type: "SOLANA" | "EVM" | "CROSSMINT"
     }
     CompositeTypes: {
       [_ in never]: never
