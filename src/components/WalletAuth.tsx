@@ -67,7 +67,7 @@ export const WalletAuth = () => {
         <>
           <h2 className="text-2xl font-bold text-center">Connect Your Wallet</h2>
           <CrossmintPayButton
-            clientId={process.env.CROSSMINT_CLIENT_ID || ""}
+            clientId={import.meta.env.VITE_CROSSMINT_CLIENT_ID || ""}
             environment="staging"
             mintConfig={{
               type: "erc-20",
