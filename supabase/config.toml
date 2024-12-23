@@ -33,19 +33,3 @@ verify_jwt = true
 [[functions]]
 name = "handle-crossmint-mint" 
 verify_jwt = true
-
-[[functions]]
-name = "generate-embeddings"
-verify_jwt = true
-
-[[functions]]
-name = "manage-ai-models"
-verify_jwt = true
-
-[[functions]]
-name = "handle-web3-auth"
-verify_jwt = true
-
-[[functions]]
-name = "optimize-memory"
-verify_jwt = true

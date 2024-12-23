@@ -118,6 +118,109 @@ export type Database = {
           },
         ]
       }
+      mode_contracts: {
+        Row: {
+          abi: Json
+          contract_address: string
+          contract_name: string
+          contract_type: string
+          created_at: string | null
+          deployed_at: string | null
+          id: string
+          profile_id: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          abi: Json
+          contract_address: string
+          contract_name: string
+          contract_type: string
+          created_at?: string | null
+          deployed_at?: string | null
+          id?: string
+          profile_id?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          abi?: Json
+          contract_address?: string
+          contract_name?: string
+          contract_type?: string
+          created_at?: string | null
+          deployed_at?: string | null
+          id?: string
+          profile_id?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mode_contracts_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      mode_transactions: {
+        Row: {
+          amount: number
+          block_number: number | null
+          created_at: string | null
+          from_address: string
+          gas_price: number | null
+          gas_used: number | null
+          id: string
+          profile_id: string | null
+          status: Database["public"]["Enums"]["transaction_status"] | null
+          to_address: string
+          token_address: string
+          transaction_hash: string | null
+          transaction_type: Database["public"]["Enums"]["transaction_type"]
+          updated_at: string | null
+        }
+        Insert: {
+          amount: number
+          block_number?: number | null
+          created_at?: string | null
+          from_address: string
+          gas_price?: number | null
+          gas_used?: number | null
+          id?: string
+          profile_id?: string | null
+          status?: Database["public"]["Enums"]["transaction_status"] | null
+          to_address: string
+          token_address: string
+          transaction_hash?: string | null
+          transaction_type: Database["public"]["Enums"]["transaction_type"]
+          updated_at?: string | null
+        }
+        Update: {
+          amount?: number
+          block_number?: number | null
+          created_at?: string | null
+          from_address?: string
+          gas_price?: number | null
+          gas_used?: number | null
+          id?: string
+          profile_id?: string | null
+          status?: Database["public"]["Enums"]["transaction_status"] | null
+          to_address?: string
+          token_address?: string
+          transaction_hash?: string | null
+          transaction_type?: Database["public"]["Enums"]["transaction_type"]
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mode_transactions_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       profiles: {
         Row: {
           created_at: string
@@ -498,6 +601,8 @@ export type Database = {
       order_type: "MARKET" | "LIMIT" | "STOP_LOSS" | "TAKE_PROFIT"
       pool_type: "CONSTANT_PRODUCT" | "CONCENTRATED" | "STABLE"
       position_status: "OPEN" | "CLOSED" | "LIQUIDATED"
+      transaction_status: "PENDING" | "COMPLETED" | "FAILED"
+      transaction_type: "SEND" | "RECEIVE" | "SWAP" | "STAKE" | "UNSTAKE"
       wallet_type: "SOLANA" | "EVM" | "CROSSMINT"
     }
     CompositeTypes: {
