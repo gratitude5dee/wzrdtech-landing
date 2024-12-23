@@ -1,14 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Spline from '@splinetool/react-spline';
-import { supabase } from '@/lib/supabase';
-import { solanaService, evmService, crossmintService } from '@/services/blockchain';
-import { aiService } from '@/services/ai-insights';
-import { useToast } from "@/components/ui/use-toast";
+import { WalletButton } from '@/components/WalletButton';
 
 const Hero = () => {
   const coinRef = useRef<HTMLDivElement>(null);
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
-  const { toast } = useToast();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -42,52 +37,6 @@ const Hero = () => {
     }
   };
 
-  const connectWallet = async () => {
-    try {
-      // For this example, we'll use Phantom wallet for Solana
-      const { solana } = window as any;
-      
-      if (!solana?.isPhantom) {
-        toast({
-          title: "Wallet not found",
-          description: "Please install Phantom wallet",
-          variant: "destructive",
-        });
-        return;
-      }
-
-      const response = await solana.connect();
-      setWalletAddress(response.publicKey.toString());
-      
-      // Update user record in Supabase
-      const { error } = await supabase
-        .from('users')
-        .upsert({
-          id: response.publicKey.toString(),
-          solana_address: response.publicKey.toString(),
-        });
-
-      if (error) throw error;
-
-      toast({
-        title: "Wallet connected",
-        description: "Successfully connected to Phantom wallet",
-      });
-      
-      // Get initial market sentiment
-      const sentiment = await aiService.getMarketSentiment("JATT_TOKEN_ADDRESS");
-      console.log("Market sentiment:", sentiment);
-      
-    } catch (error) {
-      console.error('Error connecting wallet:', error);
-      toast({
-        title: "Connection failed",
-        description: "Failed to connect wallet",
-        variant: "destructive",
-      });
-    }
-  };
-
   return (
     <div className="relative min-h-screen bg-jatt-dark overflow-hidden" id="home">
       {/* Navigation Overlay */}
@@ -108,7 +57,7 @@ const Hero = () => {
           onClick={handleStakeClick}
           className="px-8 py-2 text-transparent hover:text-white/50 transition-colors"
         >
-          Stake $JATT
+          Stake WZRD.tech
         </button>
       </div>
 
@@ -139,7 +88,7 @@ const Hero = () => {
         <div className="container mx-auto flex flex-col items-center justify-center text-center">
           <img 
             src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
-            alt="$JATT Logo"
+            alt="WZRD.tech Logo"
             className="w-64 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(255,68,68,0.6)] animate-pulse"
           />
           
@@ -147,29 +96,15 @@ const Hero = () => {
             One this Earth,
           </h1>
           <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
-            we all one $JATT
+            we all one WZRD.tech
           </h2>
           <p className="text-gray-400 max-w-2xl mb-12">
-            Join the cosmic revolution with $JATT - where memes meet the metaverse in an 
+            Join the cosmic revolution with WZRD.tech - where memes meet the metaverse in an 
             interstellar journey to the moon and beyond.
           </p>
           
           <div className="flex gap-4">
-            {!walletAddress ? (
-              <button
-                onClick={connectWallet}
-                className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
-              >
-                Connect Wallet
-              </button>
-            ) : (
-              <button
-                onClick={handleStakeClick}
-                className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
-              >
-                Buy $JATT
-              </button>
-            )}
+            <WalletButton />
             <a
               href="#roadmap"
               className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
