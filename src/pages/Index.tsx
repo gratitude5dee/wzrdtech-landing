@@ -25,8 +25,8 @@ const Index = () => {
       <div className={`transition-all duration-1000 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <Navbar />
         <Hero />
-        <Features />
         <Sponsors />
+        <Features />
         <Timeline />
         <Footer />
       </div>
