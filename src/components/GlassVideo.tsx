@@ -32,11 +32,11 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
         <div className="absolute inset-0 rounded-2xl border border-jatt-gold/30 shadow-[0_0_30px_rgba(218,165,32,0.3)] animate-glow" />
         
         {/* Content container */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-12 px-8">
+        <div className="relative z-10 flex flex-col items-center justify-center h-full">
           {/* Video element with enhanced transitions */}
           <div className="w-full h-full relative transform transition-all duration-1000">
             <video 
-              src="/aivid3.mp4"
+              src="/aivid4.mp4"
               autoPlay
               muted
               playsInline
@@ -47,13 +47,6 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
               transition-opacity duration-1000 ${isExiting ? 'opacity-0' : 'opacity-100'}`} 
             />
           </div>
-
-          {/* Text with enhanced gradient and animation */}
-          <h2 className={`text-3xl md:text-5xl font-bold text-gradient animate-pulse max-w-2xl text-center 
-            transition-all duration-1000 ${isExiting ? 'opacity-0 translate-y-10' : 'opacity-100 translate-y-0'}`}
-          >
-            Embrace the ancient wisdom flowing through you...
-          </h2>
 
           {/* Enhanced decorative lines */}
           <div className={`absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-jatt-neon-blue to-transparent 
