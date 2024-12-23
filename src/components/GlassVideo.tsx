@@ -25,13 +25,15 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
         
         {/* Content container */}
         <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-12 px-8">
-          {/* Spinning coin animation */}
-          <div className="relative">
-            <div className="w-32 h-32 rounded-full border-2 border-jatt-gold animate-spin-slow">
-              <div className="w-full h-full rounded-full border-2 border-jatt-neon-purple animate-pulse" />
-            </div>
+          {/* Video element */}
+          <div className="w-full h-full relative">
+            <img 
+              src="/lovable-uploads/8d7c9a95-d314-41b3-80d0-ca37ede2ccb3.png"
+              alt="WZRD.tech Intro"
+              className="w-full h-full object-cover animate-pulse"
+            />
             {/* Inner glow */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-jatt-neon-purple/20 via-jatt-neon-blue/20 to-jatt-neon-green/20 blur-md animate-pulse" />
+            <div className="absolute inset-0 bg-gradient-to-r from-jatt-neon-purple/20 via-jatt-neon-blue/20 to-jatt-neon-green/20 blur-md animate-pulse" />
           </div>
 
           {/* Text with gradient */}
