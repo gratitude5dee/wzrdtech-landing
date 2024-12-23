@@ -87,7 +87,7 @@ const Hero = () => {
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
           {/* Background WZRD.gif */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-50 pointer-events-none z-0">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-50 pointer-events-none z-0">
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Background"
@@ -96,11 +96,11 @@ const Hero = () => {
           </div>
 
           {/* Foreground content */}
-          <div className="relative z-10">
+          <div className="relative z-10 max-w-4xl mx-auto">
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="w-64 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_20px_rgba(218,165,32,0.8)] transition-all duration-300"
+              className="w-64 h-auto mb-12 mx-auto filter drop-shadow-[0_0_15px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_20px_rgba(218,165,32,0.8)] transition-all duration-300"
             />
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -109,12 +109,12 @@ const Hero = () => {
             <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
               we all one WZRD.tech
             </h2>
-            <p className="text-gray-400 max-w-2xl mb-12">
+            <p className="text-gray-400 max-w-2xl mx-auto mb-12">
               Join the cosmic revolution with WZRD.tech - where memes meet the metaverse in an 
               interstellar journey to the moon and beyond.
             </p>
             
-            <div className="flex gap-4">
+            <div className="flex justify-center gap-6">
               <WalletButton />
               <a
                 href="https://wzrdtech.replit.app"
