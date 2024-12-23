@@ -19,7 +19,7 @@ export const aiService = {
       }
       
       // Otherwise, generate new insight
-      const sentiment = await this.analyzeSentiment(tokenAddress)
+      const sentiment = await analyzeSentiment(tokenAddress)
       
       // Store new insight
       const { data, error } = await supabase
@@ -37,18 +37,19 @@ export const aiService = {
       console.error('Error getting market sentiment:', error)
       throw error
     }
-  },
-  
-  private async analyzeSentiment(tokenAddress: string) {
-    // This would integrate with your chosen AI model
-    // For now, returning mock data
-    return {
-      data: {
-        sentiment: 'positive',
-        score: 0.85,
-        trends: ['increasing_volume', 'positive_social_mentions']
-      },
-      confidence: 0.85
-    }
+  }
+}
+
+// Helper function moved outside the object
+async function analyzeSentiment(tokenAddress: string) {
+  // This would integrate with your chosen AI model
+  // For now, returning mock data
+  return {
+    data: {
+      sentiment: 'positive',
+      score: 0.85,
+      trends: ['increasing_volume', 'positive_social_mentions']
+    },
+    confidence: 0.85
   }
 }
