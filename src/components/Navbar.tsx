@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="relative flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <img 
-              src="lovable-uploads/38dabe95-350a-450f-a098-607008d018a6.png"
+              src="wzrd.gif"
               alt="WZRD.tech Logo"
               className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
