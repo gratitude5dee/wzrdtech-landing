@@ -110,7 +110,7 @@ const Hero = () => {
             />
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-              One this Earth,
+              WZRD.tech
             </h1>
             <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-500 via-jatt-gold to-purple-500 bg-clip-text text-transparent mb-8 drop-shadow-lg">
               we all one WZRD.tech
