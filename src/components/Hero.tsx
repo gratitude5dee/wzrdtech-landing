@@ -62,7 +62,7 @@ const Hero = () => {
       </div>
 
       {/* Spline 3D Scene */}
-      <div className="h-screen mt-[100px]">
+      <div className="h-screen">
         <Spline
           scene="https://prod.spline.design/HZpCQMSMnyZdwJhA/scene.splinecode"
           className="w-full h-full"
