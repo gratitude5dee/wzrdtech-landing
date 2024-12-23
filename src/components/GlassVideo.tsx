@@ -3,8 +3,13 @@ import { useState, useEffect } from 'react';
 const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isExiting, setIsExiting] = useState(false);
+  const [isEntering, setIsEntering] = useState(true);
 
   useEffect(() => {
+    // Start with entering animation
+    setIsEntering(true);
+    setTimeout(() => setIsEntering(false), 1000); // 1 second for fade in
+
     const timer = setTimeout(() => {
       setIsExiting(true);
       // Add a small delay before completely removing the component
@@ -22,7 +27,8 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
   return (
     <div 
       className={`fixed inset-0 z-50 flex items-center justify-center bg-jatt-darker/95 backdrop-blur-lg transition-all duration-1000 
-        ${isExiting ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}`}
+        ${isExiting ? 'opacity-0 scale-105' : 'opacity-100 scale-100'}
+        ${isEntering ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}
     >
       <div className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden transition-transform duration-1000">
         {/* Gradient background with enhanced animation */}
@@ -36,7 +42,7 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
           {/* Video element with enhanced transitions */}
           <div className="w-full h-full relative transform transition-all duration-1000">
             <video 
-              src="/aivid4.mp4"
+              src="/aivid3.mp4"
               autoPlay
               muted
               playsInline
