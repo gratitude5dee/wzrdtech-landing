@@ -27,7 +27,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Roadmap", href: "#roadmap" },
-    { name: "Access WZRD.tech", href: "https://www.wzrdtech.replit.app" },
+    { name: "Access WZRD.tech", href: "https://www.wzrdtech.replit.app", external: true },
     { name: "FAQs", href: "#faqs" },
   ];
 
@@ -58,6 +58,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : ""}
                 className="px-6 py-2 text-sm font-medium text-white/90 hover:text-white
                   hover:bg-white/10 rounded-xl transition-all duration-300
                   border border-transparent hover:border-[#9b87f540]
@@ -103,6 +105,8 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
+                target={item.external ? "_blank" : "_self"}
+                rel={item.external ? "noopener noreferrer" : ""}
                 className="text-2xl text-gray-300 hover:text-purple-500 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
