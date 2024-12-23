@@ -93,6 +93,16 @@ export default {
         "spin-slow": {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" }
+        },
+        "scale-fade": {
+          "0%": { 
+            transform: "scale(1)",
+            opacity: "1"
+          },
+          "100%": { 
+            transform: "scale(1.05)",
+            opacity: "0"
+          }
         }
       },
       animation: {
@@ -100,7 +110,8 @@ export default {
         "rotate-slow": "rotate-slow 20s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
         "draw": "draw 2s ease-out forwards",
-        "spin-slow": "spin-slow 4s linear infinite"
+        "spin-slow": "spin-slow 4s linear infinite",
+        "scale-fade": "scale-fade 1s ease-out forwards"
       },
     },
   },
