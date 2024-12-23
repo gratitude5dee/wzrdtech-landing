@@ -3,7 +3,7 @@ const Features = () => {
     <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="features">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
-          <span className="text-gradient">Features</span>
+          <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Features</span>
         </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-12">
@@ -12,9 +12,9 @@ const Features = () => {
               play around based on your needs
             </h3>
             <p className="text-gray-400">
-              content creator? podcaster? run a faceless youtube channel? use the WZRD.tech playground to reutilize your previous content
+              content creator? podcaster? run a faceless youtube channel? use the $PUSHPA playground to reutilize your previous content
             </p>
-            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-red-500/20">
+            <div className="bg-[#1A1F2C] rounded-lg p-6 shadow-lg shadow-red-500/20">
               <div className="aspect-video rounded-lg overflow-hidden bg-black/50 animate-pulse" />
             </div>
           </div>
@@ -24,12 +24,12 @@ const Features = () => {
               dev tools
             </h3>
             <p className="text-gray-400">
-              utilize our dev playground to supercharge your apps and implement WZRD.tech in your workflows
+              utilize our dev playground to supercharge your apps and implement $PUSHPA in your workflows
             </p>
-            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-red-500/20">
+            <div className="bg-[#1A1F2C] rounded-lg p-6 shadow-lg shadow-red-500/20">
               <div className="font-mono text-sm text-red-500 bg-black/50 p-4 rounded">
-                <pre>// WZRD.tech implementation example
-{`const wzrd = new WZRD({
+                <pre>// $PUSHPA implementation example
+{`const pushpa = new PUSHPA({
   address: "0x9c143..."`}</pre>
               </div>
             </div>
@@ -42,7 +42,7 @@ const Features = () => {
             <p className="text-gray-400">
               join our growing community of creators and developers building the future of content monetization
             </p>
-            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-purple-500/20">
+            <div className="bg-[#1A1F2C] rounded-lg p-6 shadow-lg shadow-purple-500/20">
               <div className="grid grid-cols-3 gap-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="aspect-square rounded-lg bg-black/50 animate-pulse" />
@@ -58,7 +58,7 @@ const Features = () => {
             <p className="text-gray-400">
               leverage cutting-edge AI technology to enhance your content creation and development workflow
             </p>
-            <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-blue-500/20">
+            <div className="bg-[#1A1F2C] rounded-lg p-6 shadow-lg shadow-blue-500/20">
               <div className="h-32 rounded-lg bg-black/50 animate-pulse flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-blue-500/20 animate-ping" />
               </div>
