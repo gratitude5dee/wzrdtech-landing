@@ -85,32 +85,44 @@ const Hero = () => {
 
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
-        <div className="container mx-auto flex flex-col items-center justify-center text-center">
-          <img 
-            src="/95eb60b1-84f4-46dd-ab1d-b884b7f46adf.png"
-            alt="WZRD.tech Logo"
-            className="w-64 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(255,68,68,0.6)] animate-pulse"
-          />
-          
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            One this Earth,
-          </h1>
-          <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
-            we all one WZRD.tech
-          </h2>
-          <p className="text-gray-400 max-w-2xl mb-12">
-            Join the cosmic revolution with WZRD.tech - where memes meet the metaverse in an 
-            interstellar journey to the moon and beyond.
-          </p>
-          
-          <div className="flex gap-4">
-            <WalletButton />
-            <a
-              href="https://wzrdtech.replit.app"
-              className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
-            >
-              Access WZRD.tech
-            </a>
+        <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
+          {/* Background WZRD.gif */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-50 pointer-events-none z-0">
+            <img 
+              src="/wzrd.gif"
+              alt="WZRD.tech Background"
+              className="w-full h-full object-contain animate-pulse"
+            />
+          </div>
+
+          {/* Foreground content */}
+          <div className="relative z-10">
+            <img 
+              src="/wzrd.gif"
+              alt="WZRD.tech Logo"
+              className="w-64 h-auto mb-12 filter drop-shadow-[0_0_15px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_20px_rgba(218,165,32,0.8)] transition-all duration-300"
+            />
+            
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+              One this Earth,
+            </h1>
+            <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
+              we all one WZRD.tech
+            </h2>
+            <p className="text-gray-400 max-w-2xl mb-12">
+              Join the cosmic revolution with WZRD.tech - where memes meet the metaverse in an 
+              interstellar journey to the moon and beyond.
+            </p>
+            
+            <div className="flex gap-4">
+              <WalletButton />
+              <a
+                href="https://wzrdtech.replit.app"
+                className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
+              >
+                Access WZRD.tech
+              </a>
+            </div>
           </div>
         </div>
       </section>
