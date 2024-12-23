@@ -2,15 +2,20 @@ import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const WalletAuth = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [session, setSession] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      if (session) {
+        navigate('/dashboard');
+      }
       setLoading(false);
     });
 
@@ -18,10 +23,13 @@ export const WalletAuth = () => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+      if (session) {
+        navigate('/dashboard');
+      }
     });
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [navigate]);
 
   const handleWalletConnect = async (walletAddress: string) => {
     try {
@@ -47,6 +55,8 @@ export const WalletAuth = () => {
         title: "Success!",
         description: "Wallet connected successfully",
       });
+      
+      navigate('/dashboard');
     } catch (error) {
       console.error('Error:', error);
       toast({
