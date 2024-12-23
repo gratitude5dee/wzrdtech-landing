@@ -64,7 +64,7 @@ const Hero = () => {
       {/* Spline 3D Scene */}
       <div className="h-screen">
         <Spline
-          scene="https://prod.spline.design/SF6vheWfvahzFGmU/scene.splinecode"
+          scene="https://prod.spline.design/HZpCQMSMnyZdwJhA/scene.splinecode"
           className="w-full h-full"
         />
       </div>
