@@ -38,7 +38,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-jatt-dark overflow-hidden" id="home">
+    <div className="relative min-h-screen bg-jatt-dark overflow-hidden pt-24" id="home">
       {/* Navigation Overlay */}
       <div className="absolute top-0 left-0 right-0 z-10 flex justify-center gap-8 pt-4">
         <button 
