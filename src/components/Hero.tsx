@@ -113,7 +113,7 @@ const Hero = () => {
               WZRD.tech
             </h1>
             <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-500 via-jatt-gold to-purple-500 bg-clip-text text-transparent mb-8 drop-shadow-lg">
-              we all one WZRD.tech
+              experience etheric technology
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-12">
               Join the psychedelic revolution with WZRD.tech - personal wellness at your fingertips, with the mission to empower healers and creatives globally.
