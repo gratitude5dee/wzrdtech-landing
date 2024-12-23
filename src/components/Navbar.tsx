@@ -49,7 +49,7 @@ const Navbar = () => {
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-32 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
           </div>
 
@@ -97,7 +97,7 @@ const Navbar = () => {
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-48 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
             {navItems.map((item) => (
               <a
