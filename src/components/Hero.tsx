@@ -89,15 +89,15 @@ const Hero = () => {
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
-          {/* Background WZRD.gif */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-50 pointer-events-none z-0">
+          {/* Background video */}
+          <div className="absolute inset-0 w-full h-full opacity-50 pointer-events-none z-0">
             <video 
-              src="/aivid3.mp4"
+              src="/aivid1.mp4"
               autoPlay
               muted
               playsInline
               loop
-              className="w-full h-full object-contain animate-pulse"
+              className="w-full h-full object-cover"
             />
           </div>
 
