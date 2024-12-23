@@ -115,7 +115,7 @@ const Hero = () => {
             <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-500 via-jatt-gold to-purple-500 bg-clip-text text-transparent mb-8 drop-shadow-lg">
               experience etheric technology
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-12">
+            <p className="relative text-gray-400 max-w-2xl mx-auto mb-12 bg-gradient-to-r from-[#9b87f5] via-[#D946EF] to-[#8B5CF6] bg-clip-text text-transparent animate-text-shimmer before:content-[''] before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjE1Ii8+PC9zdmc+')] before:mix-blend-overlay before:opacity-50 before:pointer-events-none drop-shadow-[0_0_10px_rgba(155,135,245,0.3)]">
               Join the psychedelic revolution with WZRD.tech - personal wellness at your fingertips, with the mission to empower healers and creatives globally.
             </p>
             
