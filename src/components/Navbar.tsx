@@ -27,7 +27,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Roadmap", href: "#roadmap" },
-    { name: "Stake WZRD.tech", href: "#stake" },
+    { name: "Access WZRD.tech", href: "https://www.wzrdtech.replit.app" },
     { name: "FAQs", href: "#faqs" },
   ];
 
