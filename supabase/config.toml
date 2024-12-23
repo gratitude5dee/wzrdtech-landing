@@ -1,19 +1,1 @@
 project_id = "vdkyahapnibtxkyofbap"
-
-[api]
-enabled = true
-port = 54321
-schemas = ["public", "storage"]
-
-[db]
-port = 54322
-
-[functions]
-[functions.token-launch]
-verify_jwt = true
-
-[functions.liquidity-management]
-verify_jwt = true
-
-[functions.trading-operations]
-verify_jwt = true
