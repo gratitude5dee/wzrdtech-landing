@@ -45,11 +45,11 @@ const Navbar = () => {
           hover:bg-gradient-to-br hover:from-[#1A1F2C99] hover:via-[#221F2699] hover:to-[#22222299]`}
       >
         <div className="relative flex items-center justify-between w-full">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 overflow-hidden h-16">
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_12px_rgba(218,165,32,0.8)]"
+              className="h-24 w-auto -mt-4 object-contain transform hover:scale-105 transition-all duration-300 filter drop-shadow-[0_0_8px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_12px_rgba(218,165,32,0.8)]"
             />
           </div>
 
@@ -103,7 +103,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-2xl text-gray-300 hover:text-red-500 transition-colors"
+                className="text-2xl text-gray-300 hover:text-purple-500 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
