@@ -21,8 +21,7 @@ const Footer = () => {
           
           {/* Description */}
           <p className="text-gray-300 text-sm max-w-md text-center leading-relaxed backdrop-blur-sm mb-4">
-            Join the cosmic revolution with $JATT - where memes meet the metaverse in an 
-            interstellar journey to the moon and beyond.
+            Join the psychedelic revolution with WZRD.tech - personal wellness at your fingertips, with the mission to empower healers and creatives globally.
           </p>
 
           {/* Connect Section - Horizontal Layout */}
@@ -68,7 +67,7 @@ const Footer = () => {
         {/* Bottom Bar with frosted glass effect */}
         <div className="mt-4 pt-4 border-t border-white/10 backdrop-blur-md">
           <p className="text-gray-400 text-center text-xs">
-            © 2024 $JATT. All rights reserved.
+            © 2024 5-Dee Studios. All rights reserved.
           </p>
         </div>
       </div>
