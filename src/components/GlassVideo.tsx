@@ -35,9 +35,11 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
         <div className="relative z-10 flex flex-col items-center justify-center h-full space-y-12 px-8">
           {/* Video element with enhanced transitions */}
           <div className="w-full h-full relative transform transition-all duration-1000">
-            <img 
-              src="/lovable-uploads/8d7c9a95-d314-41b3-80d0-ca37ede2ccb3.png"
-              alt="WZRD.tech Intro"
+            <video 
+              src="/aivid3.mp4"
+              autoPlay
+              muted
+              playsInline
               className={`w-full h-full object-cover transition-all duration-1000 ${isExiting ? 'scale-110 blur-sm' : 'scale-100 blur-0'}`}
             />
             {/* Inner glow with enhanced animation */}
