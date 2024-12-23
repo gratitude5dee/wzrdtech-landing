@@ -12,7 +12,7 @@ const Features = () => {
               play around based on your needs
             </h3>
             <p className="text-gray-400">
-              content creator? podcaster? run a faceless youtube channel? use the $JATT playground to reutilize your previous content
+              content creator? podcaster? run a faceless youtube channel? use the WZRD.tech playground to reutilize your previous content
             </p>
             <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-red-500/20">
               <div className="aspect-video rounded-lg overflow-hidden bg-black/50 animate-pulse" />
@@ -24,12 +24,12 @@ const Features = () => {
               dev tools
             </h3>
             <p className="text-gray-400">
-              utilize our dev playground to supercharge your apps and implement $JATT in your workflows
+              utilize our dev playground to supercharge your apps and implement WZRD.tech in your workflows
             </p>
             <div className="bg-jatt-dark rounded-lg p-6 shadow-lg shadow-red-500/20">
               <div className="font-mono text-sm text-red-500 bg-black/50 p-4 rounded">
-                <pre>// $JATT implementation example
-{`const jatt = new JATT({
+                <pre>// WZRD.tech implementation example
+{`const wzrd = new WZRD({
   address: "0x9c143..."`}</pre>
               </div>
             </div>

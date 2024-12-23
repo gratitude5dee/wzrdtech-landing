@@ -1,9 +1,30 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
+import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/lib/supabase";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [session, setSession] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setLoading(false);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -31,12 +52,50 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleWalletConnect = async (walletAddress: string) => {
+    try {
+      if (!session?.user?.id) {
+        const { data: { user }, error } = await supabase.auth.signUp({
+          email: `${walletAddress.toLowerCase()}@crossmint.com`,
+          password: crypto.randomUUID(),
+        });
+
+        if (error) throw error;
+
+        if (user) {
+          const { error: profileError } = await supabase
+            .from('profiles')
+            .update({ wallet_address: walletAddress })
+            .eq('id', user.id);
+
+          if (profileError) throw profileError;
+        }
+      }
+
+      toast({
+        title: "Success!",
+        description: "Wallet connected successfully",
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to connect wallet",
+        variant: "destructive",
+      });
+    }
+  };
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Roadmap", href: "#roadmap" },
-    { name: "Stake $JATT", href: "#stake" },
+    { name: "Stake WZRD.tech", href: "#stake" },
     { name: "FAQs", href: "#faqs" },
   ];
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -55,8 +114,8 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <img 
               src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
-              alt="$JATT Logo"
-              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]" // Increased size from h-8 to h-16
+              alt="WZRD.tech Logo"
+              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
           </div>
 
@@ -82,6 +141,33 @@ const Navbar = () => {
               </a>
             ))}
           </div>
+
+          <div className="flex-shrink-0 ml-6">
+            {!session ? (
+              <CrossmintPayButton
+                clientId={import.meta.env.VITE_CROSSMINT_CLIENT_ID || ""}
+                environment="staging"
+                mintConfig={{
+                  type: "erc-20",
+                  totalPrice: "0",
+                  quantity: "1",
+                }}
+                onClick={(data: any) => {
+                  if (data.walletAddress) {
+                    handleWalletConnect(data.walletAddress);
+                  }
+                }}
+                className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
+              />
+            ) : (
+              <button
+                onClick={() => supabase.auth.signOut()}
+                className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg hover:bg-red-700"
+              >
+                Sign Out
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -101,8 +187,8 @@ const Navbar = () => {
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <img 
               src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
-              alt="$JATT Logo"
-              className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]" // Increased size from h-12 to h-24
+              alt="WZRD.tech Logo"
+              className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
             {navItems.map((item) => (
               <a
@@ -114,6 +200,32 @@ const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <div className="mt-8">
+              {!session ? (
+                <CrossmintPayButton
+                  clientId={import.meta.env.VITE_CROSSMINT_CLIENT_ID || ""}
+                  environment="staging"
+                  mintConfig={{
+                    type: "erc-20",
+                    totalPrice: "0",
+                    quantity: "1",
+                  }}
+                  onClick={(data: any) => {
+                    if (data.walletAddress) {
+                      handleWalletConnect(data.walletAddress);
+                    }
+                  }}
+                  className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
+                />
+              ) : (
+                <button
+                  onClick={() => supabase.auth.signOut()}
+                  className="px-4 py-2 font-semibold text-white bg-red-600 rounded-lg hover:bg-red-700"
+                >
+                  Sign Out
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
