@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col items-center space-y-4">
           {/* Logo Section - Increased size from h-8 to h-12 */}
           <img 
-            src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
+            src="/lovable-uploads/e1993637-d136-4c72-ab98-7d981858c5b8.png"
             alt="$JATT Logo"
             className="h-12 w-auto mb-2 hover:scale-105 transition-transform duration-300"
           />
