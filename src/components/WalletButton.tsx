@@ -101,7 +101,7 @@ export const WalletButton = ({ className = "", variant = "default" }: { classNam
   return (
     <button
       onClick={connectPhantomWallet}
-      className={`px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50 ${className}`}
+      className={`px-8 py-3 bg-jatt-gold text-white font-bold rounded-full hover:bg-amber-600 transition-colors shadow-lg shadow-jatt-gold/50 ${className}`}
     >
       {walletAddress ? 'Buy WZRD.tech' : 'Connect Wallet'}
     </button>
