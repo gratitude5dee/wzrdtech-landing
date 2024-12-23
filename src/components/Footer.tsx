@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col items-center space-y-4">
           {/* Logo Section */}
           <img 
-            src="/lovable-uploads/WZRD.tech(2).png"
+            src="lovable-uploads/WZRD.tech(2).png"
             alt="WZRD.tech Logo"
             className="h-12 w-auto mb-2 hover:scale-105 transition-transform duration-300"
           />

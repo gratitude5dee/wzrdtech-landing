@@ -25,7 +25,7 @@ const Navbar = () => {
         <div className="relative flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <img 
-              src="/lovable-uploads/WZRD.tech(2).png"
+              src="lovable-uploads/WZRD.tech(2).png"
               alt="WZRD.tech Logo"
               className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
@@ -73,7 +73,7 @@ const Navbar = () => {
         <div className="md:hidden fixed inset-0 z-40 bg-jatt-darker/95 backdrop-blur-sm">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <img 
-              src="/lovable-uploads/WZRD.tech(2).png"
+              src="lovable-uploads/WZRD.tech(2).png"
               alt="WZRD.tech Logo"
               className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
