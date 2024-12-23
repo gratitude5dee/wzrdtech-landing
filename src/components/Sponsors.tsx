@@ -1,6 +1,13 @@
 const Sponsors = () => {
   return (
     <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="sponsors">
+      {/* Glowing lines moved from Hero */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-blue to-transparent animate-glow" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-purple to-transparent animate-glow delay-100" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-green to-transparent animate-glow delay-200" />
+      </div>
+
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
           <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Partners</span>
