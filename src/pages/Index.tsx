@@ -6,13 +6,13 @@ import Sponsors from "@/components/Sponsors";
 import Timeline from "@/components/Timeline";
 import Footer from "@/components/Footer";
 import GlassVideo from "@/components/GlassVideo";
+import PoweredBy from "@/components/PoweredBy";
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
 
   const handleLoadComplete = () => {
-    // Add a small delay before showing the main content
     setTimeout(() => {
       setContentVisible(true);
       setIsLoading(false);
@@ -28,6 +28,7 @@ const Index = () => {
         <Sponsors />
         <Features />
         <Timeline />
+        <PoweredBy />
         <Footer />
       </div>
     </div>
