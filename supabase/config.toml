@@ -1,1 +1,51 @@
 project_id = "vdkyahapnibtxkyofbap"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+
+[db]
+port = 54322
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+
+[auth]
+enabled = true
+port = 54325
+
+[realtime]
+enabled = true
+
+[[functions]]
+name = "process-mode-tx"
+verify_jwt = true
+
+[[functions]]
+name = "handle-crossmint-mint" 
+verify_jwt = true
+
+[[functions]]
+name = "generate-embeddings"
+verify_jwt = true
+
+[[functions]]
+name = "manage-ai-models"
+verify_jwt = true
+
+[[functions]]
+name = "handle-web3-auth"
+verify_jwt = true
+
+[[functions]]
+name = "optimize-memory"
+verify_jwt = true
