@@ -1,8 +1,8 @@
 const Sponsors = () => {
   return (
     <section className="relative bg-gradient-to-b from-jatt-darker via-black to-jatt-darker px-4 py-32" id="sponsors">
-      {/* Glowing lines moved from Hero */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      {/* Glowing lines at the top of the section */}
+      <div className="absolute top-0 left-0 right-0">
         <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-blue to-transparent animate-glow" />
         <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-purple to-transparent animate-glow delay-100" />
         <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-green to-transparent animate-glow delay-200" />
