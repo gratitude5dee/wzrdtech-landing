@@ -5,14 +5,14 @@ import { WalletButton } from "./WalletButton";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const threshold = 120;
-      const horizontalThreshold = window.innerWidth * 0.48;
+      const threshold = 120; // Height from bottom where navbar appears
+      const horizontalThreshold = window.innerWidth * 0.48; // Width threshold for navbar
       const centerX = window.innerWidth / 2;
       
+      // Check if mouse is in bottom center area
       const isInBottomCenter = 
         e.clientY > window.innerHeight - threshold &&
         Math.abs(e.clientX - centerX) < horizontalThreshold;
@@ -39,10 +39,6 @@ const Navbar = () => {
     { name: "Stake WZRD.tech", href: "#stake" },
     { name: "FAQs", href: "#faqs" },
   ];
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
