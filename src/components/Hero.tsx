@@ -90,7 +90,7 @@ const Hero = () => {
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
         <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
           {/* Background video */}
-          <div className="absolute inset-0 -left-5 w-[calc(100%+50px)] h-[calc(100%+300px)] mt-[50px] opacity-50 pointer-events-none z-0">
+          <div className="absolute inset-0 -left-5 w-[calc(100%+50px)] h-[calc(100%+300px)] mt-[25px] opacity-50 pointer-events-none z-0">
             <video 
               src="/aivid1.mp4"
               autoPlay
