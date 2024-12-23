@@ -35,13 +35,13 @@ const Navbar = () => {
     <>
       <div 
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out
-          ${showMenu ? 'bottom-0 opacity-100 scale-100' : '-bottom-20 opacity-0 scale-95 pointer-events-none'}
+          ${showMenu ? 'top-4 opacity-100 scale-100' : '-top-20 opacity-0 scale-95 pointer-events-none'}
           backdrop-blur-xl bg-gradient-to-br from-[#1A1F2C98] via-[#221F2698] to-[#22222298]
-          border border-[#9b87f540] rounded-t-[2rem] shadow-2xl px-8 py-4 w-[1200px]
+          border border-[#9b87f540] rounded-[2rem] shadow-2xl px-8 py-4 w-[1200px]
           before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] 
-          before:bg-repeat before:opacity-30 before:mix-blend-overlay before:pointer-events-none before:rounded-t-[2rem]
-          after:absolute after:inset-0 after:rounded-t-[2rem] after:bg-gradient-to-br after:from-[#9b87f520] after:to-transparent after:opacity-50
-          hover:shadow-[0_-8px_32px_rgba(155,135,245,0.3)] hover:border-[#9b87f550]
+          before:bg-repeat before:opacity-30 before:mix-blend-overlay before:pointer-events-none before:rounded-[2rem]
+          after:absolute after:inset-0 after:rounded-[2rem] after:bg-gradient-to-br after:from-[#9b87f520] after:to-transparent after:opacity-50
+          hover:shadow-[0_8px_32px_rgba(155,135,245,0.3)] hover:border-[#9b87f550]
           hover:bg-gradient-to-br hover:from-[#1A1F2C99] hover:via-[#221F2699] hover:to-[#22222299]`}
       >
         <div className="relative flex items-center justify-between w-full">
