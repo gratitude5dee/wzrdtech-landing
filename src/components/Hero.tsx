@@ -71,17 +71,20 @@ const Hero = () => {
 
       {/* Background meteors */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-red-900/20 rounded-full animate-float delay-100" />
-        <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-red-900/20 rounded-full animate-float delay-300" />
-        <div className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-red-900/20 rounded-full animate-float delay-500" />
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-900/20 rounded-full animate-float delay-100" />
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 bg-purple-900/20 rounded-full animate-float delay-300" />
+        <div className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-purple-900/20 rounded-full animate-float delay-500" />
       </div>
 
       {/* Glowing lines */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-blue to-transparent animate-glow" />
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-purple to-transparent animate-glow delay-100" />
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-green to-transparent animate-glow delay-200" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-neon-purple to-transparent animate-glow" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-jatt-gold to-transparent animate-glow delay-100" />
+        <div className="w-full h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent animate-glow delay-200" />
       </div>
+
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIzMDAiIGZpbHRlcj0idXJsKCNhKSIgb3BhY2l0eT0iLjA1Ii8+PC9zdmc+')] opacity-50 pointer-events-none" />
 
       {/* Main content */}
       <section className="min-h-screen bg-jatt-darker/90 px-4 py-20">
@@ -106,19 +109,18 @@ const Hero = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
               One this Earth,
             </h1>
-            <h2 className="text-5xl md:text-7xl font-bold text-red-500 mb-8 shadow-yellow-500/50 drop-shadow-lg">
+            <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-500 via-jatt-gold to-purple-500 bg-clip-text text-transparent mb-8 drop-shadow-lg">
               we all one WZRD.tech
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-              Join the cosmic revolution with WZRD.tech - where memes meet the metaverse in an 
-              interstellar journey to the moon and beyond.
+              Join the psychedelic revolution with WZRD.tech - personal wellness at your fingertips, with the mission to empower healers and creatives globally.
             </p>
             
             <div className="flex justify-center gap-6">
               <WalletButton />
               <a
                 href="https://wzrdtech.replit.app"
-                className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
+                className="px-8 py-3 border-2 border-purple-500 text-purple-500 font-bold rounded-full hover:bg-purple-500/10 transition-colors shadow-lg shadow-purple-500/50"
               >
                 Access WZRD.tech
               </a>
