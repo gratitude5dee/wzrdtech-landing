@@ -7,17 +7,8 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const threshold = 120; // Height from bottom where navbar appears
-      const horizontalThreshold = window.innerWidth * 0.48; // Width threshold for navbar
-      const centerX = window.innerWidth / 2;
-      
-      // Check if mouse is in bottom center area
-      const isInBottomCenter = 
-        e.clientY > window.innerHeight - threshold &&
-        Math.abs(e.clientX - centerX) < horizontalThreshold;
-      
-      setShowMenu(isInBottomCenter);
+    const handleMouseMove = () => {
+      setShowMenu(true);
     };
 
     const handleMouseLeave = () => {
@@ -46,7 +37,7 @@ const Navbar = () => {
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out
           ${showMenu ? 'bottom-0 opacity-100 scale-100' : '-bottom-20 opacity-0 scale-95 pointer-events-none'}
           backdrop-blur-xl bg-gradient-to-br from-[#1A1F2C98] via-[#221F2698] to-[#22222298]
-          border border-[#9b87f540] rounded-t-[2rem] shadow-2xl px-8 py-4 w-[900px]
+          border border-[#9b87f540] rounded-t-[2rem] shadow-2xl px-8 py-4 w-[1200px]
           before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] 
           before:bg-repeat before:opacity-30 before:mix-blend-overlay before:pointer-events-none before:rounded-t-[2rem]
           after:absolute after:inset-0 after:rounded-t-[2rem] after:bg-gradient-to-br after:from-[#9b87f520] after:to-transparent after:opacity-50
@@ -56,7 +47,7 @@ const Navbar = () => {
         <div className="relative flex items-center justify-between w-full">
           <div className="flex-shrink-0">
             <img 
-              src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
+              src="lovable-uploads/38dabe95-350a-450f-a098-607008d018a6.png"
               alt="WZRD.tech Logo"
               className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
@@ -104,7 +95,7 @@ const Navbar = () => {
         <div className="md:hidden fixed inset-0 z-40 bg-jatt-darker/95 backdrop-blur-sm">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             <img 
-              src="/lovable-uploads/720bfe14-7d72-4c31-ac28-ff74302131bb.png"
+              src="lovable-uploads/38dabe95-350a-450f-a098-607008d018a6.png"
               alt="WZRD.tech Logo"
               className="h-24 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
             />
