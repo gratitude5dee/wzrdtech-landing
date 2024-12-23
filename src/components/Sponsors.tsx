@@ -10,7 +10,7 @@ const Sponsors = () => {
 
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-6xl font-bold text-center mb-16">
-          <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Partners</span>
+          <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-orange-400 bg-clip-text text-transparent">Solana AI Hackathon Partners</span>
         </h2>
 
         {/* Title Partners */}
