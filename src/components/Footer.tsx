@@ -12,11 +12,11 @@ const Footer = () => {
       
       <div className="container mx-auto px-4 relative">
         <div className="flex flex-col items-center space-y-4">
-          {/* Logo Section - Increased size from h-8 to h-12 */}
+          {/* Logo Section */}
           <img 
             src="/wzrd.gif"
             alt="WZRD.tech Logo"
-            className="h-24 w-auto mb-2 hover:scale-105 transition-transform duration-300 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+            className="h-24 w-auto mb-2 hover:scale-105 transition-transform duration-300 filter drop-shadow-[0_0_8px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_12px_rgba(218,165,32,0.8)]"
           />
           
           {/* Description */}

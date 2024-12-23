@@ -35,9 +35,9 @@ const Navbar = () => {
     <>
       <div 
         className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out
-          ${showMenu ? 'top-4 opacity-100 scale-100' : '-top-20 opacity-0 scale-95 pointer-events-none'}
+          ${showMenu ? 'top-2 opacity-100 scale-100' : '-top-20 opacity-0 scale-95 pointer-events-none'}
           backdrop-blur-xl bg-gradient-to-br from-[#1A1F2C98] via-[#221F2698] to-[#22222298]
-          border border-[#9b87f540] rounded-[2rem] shadow-2xl px-8 py-4 w-[1200px]
+          border border-[#9b87f540] rounded-[2rem] shadow-2xl px-8 py-2 w-[1200px]
           before:absolute before:inset-0 before:bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNTAiIGhlaWdodD0iMTUwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc1IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')] 
           before:bg-repeat before:opacity-30 before:mix-blend-overlay before:pointer-events-none before:rounded-[2rem]
           after:absolute after:inset-0 after:rounded-[2rem] after:bg-gradient-to-br after:from-[#9b87f520] after:to-transparent after:opacity-50
@@ -49,7 +49,7 @@ const Navbar = () => {
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="h-32 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-16 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_12px_rgba(218,165,32,0.8)]"
             />
           </div>
 
@@ -62,7 +62,7 @@ const Navbar = () => {
                   hover:bg-white/10 rounded-xl transition-all duration-300
                   border border-transparent hover:border-[#9b87f540]
                   backdrop-blur-sm hover:backdrop-blur-md
-                  hover:shadow-[0_0_20px_rgba(255,68,68,0.3)]
+                  hover:shadow-[0_0_20px_rgba(155,135,245,0.3)]
                   group relative overflow-hidden
                   hover:scale-105 transform-gpu"
               >
@@ -97,7 +97,7 @@ const Navbar = () => {
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="h-48 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(255,68,68,0.6)]"
+              className="h-48 w-auto object-contain mb-8 filter drop-shadow-[0_0_8px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_12px_rgba(218,165,32,0.8)]"
             />
             {navItems.map((item) => (
               <a
