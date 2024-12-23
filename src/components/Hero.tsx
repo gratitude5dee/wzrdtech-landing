@@ -106,10 +106,10 @@ const Hero = () => {
           <div className="flex gap-4">
             <WalletButton />
             <a
-              href="#roadmap"
+              href="https://www.wzrdtech.replit.app"
               className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
             >
-              Learn More
+              Access WZRD.tech
             </a>
           </div>
         </div>
