@@ -1,8 +1,14 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Spline from '@splinetool/react-spline';
+import { supabase } from '@/lib/supabase';
+import { solanaService, evmService, crossmintService } from '@/services/blockchain';
+import { aiService } from '@/services/ai-insights';
+import { useToast } from "@/components/ui/use-toast";
 
 const Hero = () => {
   const coinRef = useRef<HTMLDivElement>(null);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const { toast } = useToast();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -33,6 +39,52 @@ const Hero = () => {
     const element = document.getElementById('roadmap');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const connectWallet = async () => {
+    try {
+      // For this example, we'll use Phantom wallet for Solana
+      const { solana } = window as any;
+      
+      if (!solana?.isPhantom) {
+        toast({
+          title: "Wallet not found",
+          description: "Please install Phantom wallet",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      const response = await solana.connect();
+      setWalletAddress(response.publicKey.toString());
+      
+      // Update user record in Supabase
+      const { error } = await supabase
+        .from('users')
+        .upsert({
+          id: response.publicKey.toString(),
+          solana_address: response.publicKey.toString(),
+        });
+
+      if (error) throw error;
+
+      toast({
+        title: "Wallet connected",
+        description: "Successfully connected to Phantom wallet",
+      });
+      
+      // Get initial market sentiment
+      const sentiment = await aiService.getMarketSentiment("JATT_TOKEN_ADDRESS");
+      console.log("Market sentiment:", sentiment);
+      
+    } catch (error) {
+      console.error('Error connecting wallet:', error);
+      toast({
+        title: "Connection failed",
+        description: "Failed to connect wallet",
+        variant: "destructive",
+      });
     }
   };
 
@@ -103,12 +155,21 @@ const Hero = () => {
           </p>
           
           <div className="flex gap-4">
-            <a
-              href="#stake"
-              className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
-            >
-              Buy $JATT
-            </a>
+            {!walletAddress ? (
+              <button
+                onClick={connectWallet}
+                className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
+              >
+                Connect Wallet
+              </button>
+            ) : (
+              <button
+                onClick={handleStakeClick}
+                className="px-8 py-3 bg-red-500 text-white font-bold rounded-full hover:bg-red-600 transition-colors shadow-lg shadow-red-500/50"
+              >
+                Buy $JATT
+              </button>
+            )}
             <a
               href="#roadmap"
               className="px-8 py-3 border-2 border-red-500 text-red-500 font-bold rounded-full hover:bg-red-500/10 transition-colors shadow-lg shadow-red-500/50"
