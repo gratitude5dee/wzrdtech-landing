@@ -90,18 +90,30 @@ export default {
           "0%": { strokeDashoffset: "1000" },
           "100%": { strokeDashoffset: "0" }
         },
-        "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" }
+        "tilt": {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
         },
-        "scale-fade": {
+        "card-float": {
           "0%": { 
-            transform: "scale(1)",
-            opacity: "1"
+            transform: "perspective(1000px) rotateX(0) rotateY(0)",
+            boxShadow: "0 25px 50px -12px rgba(155, 135, 245, 0.15)"
+          },
+          "50%": { 
+            transform: "perspective(1000px) rotateX(2deg) rotateY(-2deg)",
+            boxShadow: "0 35px 60px -15px rgba(155, 135, 245, 0.25)"
           },
           "100%": { 
-            transform: "scale(1.05)",
-            opacity: "0"
+            transform: "perspective(1000px) rotateX(0) rotateY(0)",
+            boxShadow: "0 25px 50px -12px rgba(155, 135, 245, 0.15)"
+          }
+        },
+        "text-shimmer": {
+          "0%": { 
+            backgroundPosition: "-200% center",
+          },
+          "100%": { 
+            backgroundPosition: "200% center",
           }
         }
       },
@@ -110,8 +122,9 @@ export default {
         "rotate-slow": "rotate-slow 20s linear infinite",
         "glow": "glow 2s ease-in-out infinite",
         "draw": "draw 2s ease-out forwards",
-        "spin-slow": "spin-slow 4s linear infinite",
-        "scale-fade": "scale-fade 1s ease-out forwards"
+        "tilt": "tilt 10s ease-in-out infinite",
+        "card-float": "card-float 6s ease-in-out infinite",
+        "text-shimmer": "text-shimmer 8s ease-in-out infinite"
       },
     },
   },
