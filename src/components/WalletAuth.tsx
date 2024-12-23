@@ -74,16 +74,10 @@ export const WalletAuth = () => {
               totalPrice: "0",
               quantity: "1",
             }}
-            onSuccess={(data: any) => {
-              handleWalletConnect(data.walletAddress);
-            }}
-            onError={(error: any) => {
-              console.error(error);
-              toast({
-                title: "Error",
-                description: "Failed to connect wallet",
-                variant: "destructive",
-              });
+            onClick={(data: any) => {
+              if (data.walletAddress) {
+                handleWalletConnect(data.walletAddress);
+              }
             }}
             payButtonText="Connect Wallet"
             className="px-4 py-2 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700"
