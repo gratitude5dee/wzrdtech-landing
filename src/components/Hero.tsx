@@ -91,9 +91,12 @@ const Hero = () => {
         <div className="container mx-auto flex flex-col items-center justify-center text-center relative">
           {/* Background WZRD.gif */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-50 pointer-events-none z-0">
-            <img 
-              src="/wzrd.gif"
-              alt="WZRD.tech Background"
+            <video 
+              src="/aivid3.mp4"
+              autoPlay
+              muted
+              playsInline
+              loop
               className="w-full h-full object-contain animate-pulse"
             />
           </div>
