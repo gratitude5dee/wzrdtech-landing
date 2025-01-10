@@ -27,7 +27,13 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "Roadmap", href: "#roadmap" },
-    { name: "Access WZRD.tech", href: "https://www.wzrdtech.replit.app", external: true },
+    { 
+      name: "Receive updates", 
+      href: "https://form.zootools.co/go/olUVsILvsferFvgwBrCE", 
+      external: true,
+      dataWaitlistId: "olUVsILvsferFvgwBrCE",
+      className: "bg-[#39256e] hover:bg-[#4a307e] !border-transparent"
+    },
     { name: "FAQs", href: "#faqs" },
   ];
 
@@ -60,13 +66,14 @@ const Navbar = () => {
                 href={item.href}
                 target={item.external ? "_blank" : "_self"}
                 rel={item.external ? "noopener noreferrer" : ""}
-                className="px-6 py-2 text-sm font-medium text-white/90 hover:text-white
+                data-waitlist-id={item.dataWaitlistId}
+                className={`px-6 py-2 text-sm font-medium text-white/90 hover:text-white
                   hover:bg-white/10 rounded-xl transition-all duration-300
                   border border-transparent hover:border-[#9b87f540]
                   backdrop-blur-sm hover:backdrop-blur-md
                   hover:shadow-[0_0_20px_rgba(155,135,245,0.3)]
                   group relative overflow-hidden
-                  hover:scale-105 transform-gpu"
+                  hover:scale-105 transform-gpu ${item.className || ''}`}
               >
                 <span className="relative z-10 tracking-wide whitespace-nowrap">{item.name}</span>
                 <div className="absolute inset-0 -translate-y-full group-hover:translate-y-0 
@@ -107,7 +114,8 @@ const Navbar = () => {
                 href={item.href}
                 target={item.external ? "_blank" : "_self"}
                 rel={item.external ? "noopener noreferrer" : ""}
-                className="text-2xl text-gray-300 hover:text-purple-500 transition-colors"
+                data-waitlist-id={item.dataWaitlistId}
+                className={`text-2xl text-gray-300 hover:text-purple-500 transition-colors ${item.className || ''}`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
