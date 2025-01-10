@@ -37,6 +37,14 @@ const Navbar = () => {
     { name: "FAQs", href: "#faqs" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div 
@@ -67,12 +75,13 @@ const Navbar = () => {
                 target={item.external ? "_blank" : "_self"}
                 rel={item.external ? "noopener noreferrer" : ""}
                 data-waitlist-id={item.dataWaitlistId}
+                onClick={(e) => !item.external && handleNavClick(e, item.href)}
                 className={`px-6 py-2 text-sm font-medium text-white/90 hover:text-white
                   hover:bg-white/10 rounded-xl transition-all duration-300
                   border border-transparent hover:border-[#9b87f540]
                   backdrop-blur-sm hover:backdrop-blur-md
                   hover:shadow-[0_0_20px_rgba(155,135,245,0.3)]
-                  group relative overflow-hidden
+                  group relative overflow-hidden cursor-pointer
                   hover:scale-105 transform-gpu ${item.className || ''}`}
               >
                 <span className="relative z-10 tracking-wide whitespace-nowrap">{item.name}</span>
@@ -115,8 +124,11 @@ const Navbar = () => {
                 target={item.external ? "_blank" : "_self"}
                 rel={item.external ? "noopener noreferrer" : ""}
                 data-waitlist-id={item.dataWaitlistId}
-                className={`text-2xl text-gray-300 hover:text-purple-500 transition-colors ${item.className || ''}`}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => {
+                  !item.external && handleNavClick(e, item.href);
+                  setIsOpen(false);
+                }}
+                className={`text-2xl text-gray-300 hover:text-purple-500 transition-colors cursor-pointer ${item.className || ''}`}
               >
                 {item.name}
               </a>
