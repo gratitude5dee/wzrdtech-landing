@@ -62,11 +62,16 @@ const Hero = () => {
       </div>
 
       {/* Spline 3D Scene */}
-      <div className="w-full h-screen">
+      <div className="w-full h-screen relative">
         <Spline
           scene="https://prod.spline.design/HZpCQMSMnyZdwJhA/scene.splinecode"
-          className="w-full h-full"
-          style={{ width: '100%', height: '100%' }}
+          className="w-full h-full absolute inset-0"
+          style={{ 
+            width: '100vw', 
+            height: '100vh',
+            maxWidth: '100%',
+            objectFit: 'cover'
+          }}
         />
       </div>
 
@@ -93,7 +98,7 @@ const Hero = () => {
           {/* Background video */}
           <div className="absolute inset-0 -left-5 w-[calc(100%+50px)] h-[calc(100%+300px)] mt-[-75px] opacity-50 pointer-events-none z-0">
             <video 
-              src="/aivid1.mp4"
+              src="/aivid3.mp4"
               autoPlay
               muted
               playsInline
