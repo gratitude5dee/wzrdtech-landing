@@ -128,12 +128,10 @@ const Hero = () => {
             <div className="flex justify-center gap-6">
               <WalletButton />
               <a
-                href="https://form.zootools.co/go/olUVsILvsferFvgwBrCE"
-                data-waitlist-id="olUVsILvsferFvgwBrCE"
+                href="https://wzrdtech.replit.app"
                 className="px-8 py-3 border-2 border-purple-500 text-purple-500 font-bold rounded-full hover:bg-purple-500/10 transition-colors shadow-lg shadow-purple-500/50"
-                style={{backgroundColor: '#39256e', color: '#fff'}}
               >
-                Receive updates
+                Access WZRD.tech
               </a>
             </div>
           </div>
