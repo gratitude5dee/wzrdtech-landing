@@ -15,7 +15,7 @@ const Hero = () => {
       const moveX = (clientX - innerWidth / 2) / 50;
       const moveY = (clientY - innerHeight / 2) / 50;
       
-      coinRef.current.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${moveX * 2}deg)`;
+      coinRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -62,10 +62,11 @@ const Hero = () => {
       </div>
 
       {/* Spline 3D Scene */}
-      <div className="h-screen">
+      <div className="w-full h-screen">
         <Spline
           scene="https://prod.spline.design/HZpCQMSMnyZdwJhA/scene.splinecode"
           className="w-full h-full"
+          style={{ width: '100%', height: '100%' }}
         />
       </div>
 
