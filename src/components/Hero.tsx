@@ -106,7 +106,7 @@ const Hero = () => {
             <img 
               src="/wzrd.gif"
               alt="WZRD.tech Logo"
-              className="w-64 h-auto mb-12 mx-auto filter drop-shadow-[0_0_15px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_20px_rgba(218,165,32,0.8)] transition-all duration-300"
+              className="w-64 h-auto mb-12 mx-auto filter drop-shadow-[0_0_15px_rgba(155,135,245,0.6)] hover:drop-shadow-[0_0_20px_rgba(218,165,32,0.8)] transition-all duration-300 animate-rotate-slow"
             />
             
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
