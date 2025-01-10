@@ -42,7 +42,7 @@ const GlassVideo = ({ onLoadComplete }: { onLoadComplete: () => void }) => {
           {/* Video element with enhanced transitions */}
           <div className="w-full h-full relative transform transition-all duration-1000">
             <video 
-              src="/aivid1.mp4"
+              src="/aivid3.mp4"
               autoPlay
               muted
               playsInline

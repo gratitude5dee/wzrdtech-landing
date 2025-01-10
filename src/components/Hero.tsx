@@ -98,7 +98,7 @@ const Hero = () => {
           {/* Background video */}
           <div className="absolute inset-0 -left-5 w-[calc(100%+50px)] h-[calc(100%+300px)] mt-[-75px] opacity-50 pointer-events-none z-0">
             <video 
-              src="/aivid3.mp4"
+              src="/aivid1.mp4"
               autoPlay
               muted
               playsInline
